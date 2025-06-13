@@ -3,14 +3,18 @@ import { setupHeaderScroll } from './header-scroll.js';
 import { setupHeroSlideshow } from './hero-slideshow.js';
 import { setupMobileNav } from './mobile-nav.js';
 import { setupAuthFormToggle } from './auth-form-toggle.js';
-import { setupRegistration, setupLogin } from './auth.js'; 
+import { setupRegistration, setupLogin } from './auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Funções que rodam em todas as páginas
   setupHeaderScroll();
   setupMobileNav();
-  setupHeroSlideshow();
   
+  // Funções da página de autenticação
   setupAuthFormToggle();
   setupRegistration();
-  setupLogin(); 
+  setupLogin();
+  
+  // Funções específicas da página principal
+  setupHeroSlideshow();
 });
