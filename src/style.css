@@ -1,0 +1,858 @@
+/* === 1. RESET E CONFIGURAÇÕES BÁSICAS === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    background-color: #F4F4F9;
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* === 2. HEADER E NAVEGAÇÃO === */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: none;
+    padding: 15px 0;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
+/* === 3. MENU PRINCIPAL === */
+.navbar-menu, .navbar-actions {
+    display: none;
+}
+
+.navbar-menu a {
+    color: aliceblue;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+/* Links específicos */
+.navbar-menu a[href="#explore"]:hover {
+    color: #02f2da;
+    background-color: rgba(2, 242, 218, 0.1);
+}
+
+.navbar-menu a[href="#artists"]:hover {
+    color: #ea0e51;
+    background-color: rgba(234, 14, 81, 0.1);
+}
+
+.navbar-menu a[href="#about"]:hover {
+    color: #ffd223;
+    background-color: rgba(255, 210, 35, 0.1);
+}
+
+/* === 4. ESTADOS DO HEADER COM SCROLL === */
+.site-header.scrolled {
+    background-color: #F4F4F9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.site-header.scrolled .navbar-menu a[href="#explore"] {
+    color: #13bfc5;
+}
+
+.site-header.scrolled .navbar-menu a[href="#artists"] {
+    color: #ea0e51;
+}
+
+.site-header.scrolled .navbar-menu a[href="#about"] {
+    color: #ffd223;
+}
+
+/* Ajuste da cor do ícone hamburguer quando scrolled */
+.site-header.scrolled .navbar-toggle .bar {
+    background-color: #1a1a1a;
+}
+
+/* Ajuste do botão de login quando scrolled */
+.site-header.scrolled .btn-secondary {
+    color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.site-header.scrolled .btn-secondary:hover {
+    background-color: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+}
+
+/* === 5. BOTÕES === */
+.btn {
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #13bfc5;
+    color: white;
+    box-shadow: 0 2px 4px rgba(19, 191, 197, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: #02f2da;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(19, 191, 197, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 1.5px solid rgba(255, 255, 255, 0.8);
+    padding: 8px 22px;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-1px);
+}
+
+/* === 6. HERO SECTION === */
+.hero-section {
+    position: relative;
+    color: aliceblue;
+    padding: 100px 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('/public/music-flow.png');
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 74px;
+}
+
+.hero-button {
+    background-color: #ffb23b;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+.hero-button:hover {
+    background-color: #ffb23b;
+    box-shadow: 0 4px 12px rgba(255, 210, 35, 0.3);
+    transform: translateY(-2px);
+}
+
+/* === 7. MEDIA QUERIES === */
+@media (min-width: 768px) {
+    .navbar-menu {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 45px;
+    }
+
+    .navbar-actions {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Esconde elementos mobile em desktop */
+    .mobile-buttons,
+    .mobile-footer,
+    .nav-close-item {
+        display: none;
+    }
+}
+
+/* Estilo do botão hamburguer */
+.navbar-toggle {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 10px;
+    display: none; /* Escondido por padrão em desktop */
+}
+
+.navbar-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Ajuste para mobile */
+@media (max-width: 767px) {
+    .navbar-toggle {
+        display: block; /* Mostra apenas em mobile */
+    }
+
+    .navbar-actions {
+        display: none; /* Esconde os botões do header em mobile */
+    }
+
+    .navbar-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%; /* Ocupa 80% da largura da tela */
+        max-width: 320px; /* Mas no máximo 320px */
+        height: 100vh; /* Altura total da tela */
+        background-color: #f1f3f5; /* Fundo claro */
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        z-index: 1001; /* Fica acima do header */
+        
+        /* Itens do menu agora em coluna */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 20px;
+
+        /* Esconde o menu fora da tela por padrão */
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+    }
+
+    /* Quando o menu estiver aberto, ele desliza para dentro */
+    .navbar-menu.is-open {
+        transform: translateX(0);
+    }
+
+    /* Ajuste de cor dos links dentro do menu mobile */
+    .navbar-menu a {
+        color: #1a1a1a;
+        width: 100%;
+        display: block;
+    }
+
+    /* Estilo do botão de fechar (o "X") */
+    .nav-close-item {
+        width: 100%;
+        text-align: right;
+        margin-bottom: 20px;
+    }
+    .nav-close-btn {
+        background: none;
+        border: none;
+        font-size: 2.5rem;
+        color: #555;
+        cursor: pointer;
+    }
+
+    .nav-divider {
+        width: 100%;
+        height: 1px;
+        background-color: rgba(0, 0, 0, 0.1);
+        margin: 15px 0;
+    }
+
+    .nav-button-item a.btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+
+    /* Adiciona uma div para os botões no menu mobile */
+    .mobile-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .mobile-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Ajusta as cores dos botões no menu mobile */
+    .mobile-buttons .btn-secondary {
+        color: #1a1a1a;
+        border-color: #1a1a1a;
+    }
+
+    .mobile-buttons .btn-primary {
+        background-color: #13bfc5;
+    }
+
+    /* Estilo para os links importantes no menu mobile */
+    .mobile-footer {
+        width: 100%;
+        margin-top: auto; /* Empurra para o final do menu */
+        padding-top: 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 10px;
+    }
+
+    .mobile-footer-links a {
+        color: #555;
+        font-size: 0.85rem;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        padding: 5px 0;
+    }
+
+    .mobile-footer-links a:hover {
+        color: #13bfc5;
+    }
+
+    /* Ajusta o menu para acomodar o novo footer */
+    .navbar-menu {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 20px 20px 30px 20px;
+    }
+
+    /* Atualização do footer para mobile */
+    .site-footer {
+        padding: 40px 0 0 0;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 20px 30px 20px;
+    }
+
+    /* Esconde algumas seções menos importantes em mobile */
+    .footer-column:nth-child(2),
+    .footer-column:nth-child(3) {
+        display: none;
+    }
+
+    /* Ajusta o estilo da primeira coluna (sobre) */
+    .footer-column:first-child {
+        text-align: center;
+    }
+
+    .footer-column:first-child .footer-text {
+        font-size: 0.9rem;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* Ajusta o estilo da última coluna (redes sociais) */
+    .footer-column:last-child {
+        text-align: center;
+        margin-top: -10px;
+    }
+
+    .footer-column:last-child .footer-heading {
+        font-size: 1.1rem;
+    }
+
+    /* Centraliza e ajusta os ícones sociais */
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    .social-links a {
+        font-size: 1.3rem;
+        margin: 0;
+        padding: 10px;
+    }
+
+    /* Ajusta o rodapé inferior */
+    .footer-bottom {
+        padding: 15px 0;
+        font-size: 0.8rem;
+    }
+}
+
+/* === 8. ANIMAÇÕES === */
+.hero-title, .hero-subtitle {
+    transition: opacity 0.3s ease-in-out;
+}
+
+.hero-title.fade-out, .hero-subtitle.fade-out {
+    opacity: 0;
+}
+
+/* --- ESTILOS DA GALERIA DE DESTAQUES --- */
+
+.gallery-background {
+    background: 
+        radial-gradient(
+            circle at top left,
+            rgba(0, 245, 218, 0.15),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(255, 210, 35, 0.15),
+            transparent 35%
+        ),
+        #F4F4F9;
+}
+
+.featured-gallery {
+    position: relative;
+    padding: 80px 0;
+    /* Criando o gradiente suave nos cantos */
+    
+    overflow: hidden;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    /* Removendo a cor sólida */
+    color: transparent;
+    /* Adicionando o gradient */
+    background: linear-gradient(
+        120deg,
+        #13bfc5 30%,    /* Azul claro */
+        #751e7c 45%,   /* Roxo */
+        #ea0e51 65%,   /* Vermelho */
+        #ffd223 70%   /* Amarelo */
+    );
+    /* Fazendo o texto pegar o gradient como cor */
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* Ajustes para melhor renderização */
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.gallery-grid {
+    display: grid;
+    /* Cria colunas responsivas automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.gallery-item {
+    display: block; /* Para que a tag <a> se comporte como um bloco */
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    display: block;
+}
+
+.gallery-item-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+    transform: translateY(100%); /* Começa escondido para baixo */
+    transition: transform 0.4s ease;
+}
+
+/* Esconde o título e o parágrafo por padrão */
+.gallery-item-info h3, .gallery-item-info p {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* No hover do card, o overlay sobe */
+.gallery-item:hover .gallery-item-info {
+    transform: translateY(0);
+}
+
+/* E o texto aparece com um pequeno atraso */
+.gallery-item:hover .gallery-item-info h3 {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+.gallery-item:hover .gallery-item-info p {
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay: 0.3s;
+}
+
+
+/* --- ESTILOS DO RODAPÉ (PERSONALIZADO COM AS CORES DA LOGO) --- */
+
+.site-footer {
+    background-color: #f8f9fa; /* Um branco levemente acinzentado, muito limpo */
+    color: #555;
+    padding: 60px 0 0 0; /* Removemos o padding de baixo por enquanto */
+    /* A borda superior agora é um gradiente! */
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(to right, #13bfc5, #751e7c, #ffd223);
+    border-image-slice: 1;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    padding: 0 0 40px 0; /* Adicionamos padding aqui para alinhar com o de cima */
+}
+
+.footer-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.footer-text {
+    line-height: 1.7;
+    color: #555;
+}
+
+/* Pega o h4 dentro da primeira coluna do grid */
+.footer-grid .footer-column:nth-child(1) .footer-heading {
+    color: #13bfc5; /* Ciano - Início do gradiente da logo */
+}
+
+/* Pega o h4 dentro da segunda coluna do grid */
+.footer-grid .footer-column:nth-child(2) .footer-heading {
+    color: #751e7c; /* Roxo - Meio do gradiente */
+}
+
+/* Pega o h4 dentro da terceira coluna do grid */
+.footer-grid .footer-column:nth-child(3) .footer-heading {
+    color: #ea0e51; /* Um tom de rosa/vermelho do gradiente */
+}
+
+/* Pega o h4 dentro da quarta coluna do grid */
+.footer-grid .footer-column:nth-child(4) .footer-heading {
+    color: #ffd223; /* Amarelo - Fim do gradiente da logo */
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #2b1e67;
+}
+
+/* Ícones de Redes Sociais com hover colorido */
+.social-links a {
+    color: #555;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Cada ícone ganha uma cor da logo no hover */
+.social-links a[title="Instagram"]:hover {
+    color: #ea0e51;
+    transform: translateY(-3px);
+}
+.social-links a[title="Twitter"]:hover {
+    color: #000000;
+    transform: translateY(-3px);
+}
+.social-links a[title="Pinterest"]:hover {
+    color: #e6221f;
+    transform: translateY(-3px);
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    /* A linha divisória agora está aqui, mais sutil */
+    border-top: 1px solid #e9ecef;
+    font-size: 0.9rem;
+    color: #777;
+    background-color: #f1f3f5; /* Um fundo levemente diferente para o copyright */
+}
+
+/* Página de login*/
+
+/* --- CSS PARA ALTERNAR FORMS DE LOGIN/CADASTRO --- */
+
+/* Esta classe será usada pelo JS para esconder o formulário */
+.form-hidden {
+    display: none;
+}
+
+/* --- ESTILOS DAS PÁGINAS DE LOGIN/CADASTRO --- */
+
+/* --- ESTILOS DAS PÁGINAS DE LOGIN/CADASTRO --- */
+
+.auth-container {
+    display: flex;           /* 1. Ativa o Flexbox para o alinhamento */
+    justify-content: center; /* 2. Centraliza o card na HORIZONTAL */
+    align-items: center;     /* 3. Centraliza o card na VERTICAL */
+    min-height: 100vh;       /* 4. Garante que o container ocupe a altura toda da tela */
+    padding: 100px 15px 40px 15px; /* Adiciona espaço no topo (para o header) e no fundo */
+    /* Adicionando o mesmo gradiente da galeria */
+    background: 
+        radial-gradient(
+            circle at top left,
+            rgba(0, 245, 218, 0.15),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(255, 210, 35, 0.15),
+            transparent 35%
+        ),
+        #F4F4F9;
+}
+
+/* Ajustando a sombra do card para combinar melhor com o background */
+.auth-form-box {
+    background-color: #FFFFFF;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.auth-title {
+    font-size: 2rem;
+    color: #242424;
+    margin-bottom: 10px;
+}
+
+.auth-subtitle {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+#register-form, #login-form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #00B5A5; /* Cor de destaque do seu tema */
+    box-shadow: 0 0 0 3px rgba(0, 181, 165, 0.2);
+}
+
+.btn-full {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.auth-redirect {
+    margin-top: 25px;
+    color: #555;
+}
+
+.auth-redirect a {
+    color: #00B5A5; /* Cor de destaque do seu tema */
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* --- ESTILOS DA PÁGINA LEGAL (TERMOS, ETC.) --- */
+
+.legal-page {
+    background: 
+        radial-gradient(
+            circle at top left,
+            rgba(0, 245, 218, 0.15),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(255, 210, 35, 0.15),
+            transparent 35%
+        ),
+        #F4F4F9;
+}
+
+.legal-container {
+    padding-top: 120px; /* Espaço para o header fixo */
+    padding-bottom: 80px;
+    max-width: 800px; /* Limita a largura para melhor legibilidade */
+}
+
+.legal-main-title {
+    font-size: 2.8rem;
+    color: #242424;
+    margin-bottom: 10px;
+}
+
+.legal-intro {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 50px;
+}
+
+.legal-section {
+    margin-bottom: 40px;
+}
+
+.legal-section h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.legal-section p, .legal-section li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.legal-section ul {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+/* Centered navbar for legal pages */
+.navbar-centered {
+    justify-content: center;
+}
+
+.navbar-centered .navbar-logo {
+    margin: 0;
+}
+
+.autoShow {
+    animation: text-appear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 100vh;
+}
+
+@keyframes text-appear {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
