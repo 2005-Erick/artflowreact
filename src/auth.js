@@ -64,7 +64,7 @@ export function setupLogin() {
       
       sessionStorage.setItem('loggedInUser', JSON.stringify(user));
 
-      window.location.href = '/index.html'; 
+      window.location.href = import.meta.env.BASE_URL; 
 
     } else {
       alert('E-mail ou senha incorretos. Por favor, tente novamente.');

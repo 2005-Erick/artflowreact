@@ -104,12 +104,10 @@ ul {
     color: #ffd223;
 }
 
-/* Ajuste da cor do ícone hamburguer quando scrolled */
 .site-header.scrolled .navbar-toggle .bar {
     background-color: #1a1a1a;
 }
 
-/* Ajuste do botão de login quando scrolled */
 .site-header.scrolled .btn-secondary {
     color: #1a1a1a;
     border-color: #1a1a1a;
@@ -228,7 +226,7 @@ ul {
         gap: 10px;
     }
 
-    /* Esconde elementos mobile em desktop */
+
     .mobile-buttons,
     .mobile-footer,
     .nav-close-item {
@@ -236,13 +234,12 @@ ul {
     }
 }
 
-/* Estilo do botão hamburguer */
 .navbar-toggle {
     border: none;
     background: none;
     cursor: pointer;
     padding: 10px;
-    display: none; /* Escondido por padrão em desktop */
+    display: none;
 }
 
 .navbar-toggle .bar {
@@ -254,52 +251,46 @@ ul {
     transition: all 0.3s ease;
 }
 
-/* Ajuste para mobile */
 @media (max-width: 767px) {
     .navbar-toggle {
-        display: block; /* Mostra apenas em mobile */
+        display: block; 
     }
 
     .navbar-actions {
-        display: none; /* Esconde os botões do header em mobile */
+        display: none; 
     }
 
     .navbar-menu {
         position: fixed;
         top: 0;
         right: 0;
-        width: 80%; /* Ocupa 80% da largura da tela */
-        max-width: 320px; /* Mas no máximo 320px */
-        height: 100vh; /* Altura total da tela */
-        background-color: #f1f3f5; /* Fundo claro */
+        width: 80%; 
+        max-width: 320px; 
+        height: 100vh; 
+        background-color: #f1f3f5;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        z-index: 1001; /* Fica acima do header */
+        z-index: 1001; 
         
-        /* Itens do menu agora em coluna */
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         padding: 20px;
         gap: 20px;
 
-        /* Esconde o menu fora da tela por padrão */
         transform: translateX(100%);
         transition: transform 0.4s ease-in-out;
     }
 
-    /* Quando o menu estiver aberto, ele desliza para dentro */
     .navbar-menu.is-open {
         transform: translateX(0);
     }
 
-    /* Ajuste de cor dos links dentro do menu mobile */
     .navbar-menu a {
         color: #1a1a1a;
         width: 100%;
         display: block;
     }
 
-    /* Estilo do botão de fechar (o "X") */
     .nav-close-item {
         width: 100%;
         text-align: right;
@@ -327,7 +318,6 @@ ul {
         margin-bottom: 10px;
     }
 
-    /* Adiciona uma div para os botões no menu mobile */
     .mobile-buttons {
         width: 100%;
         display: flex;
@@ -341,7 +331,6 @@ ul {
         text-align: center;
     }
 
-    /* Ajusta as cores dos botões no menu mobile */
     .mobile-buttons .btn-secondary {
         color: #1a1a1a;
         border-color: #1a1a1a;
@@ -351,10 +340,9 @@ ul {
         background-color: #13bfc5;
     }
 
-    /* Estilo para os links importantes no menu mobile */
     .mobile-footer {
         width: 100%;
-        margin-top: auto; /* Empurra para o final do menu */
+        margin-top: auto; 
         padding-top: 20px;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
@@ -378,7 +366,6 @@ ul {
         color: #13bfc5;
     }
 
-    /* Ajusta o menu para acomodar o novo footer */
     .navbar-menu {
         display: flex;
         flex-direction: column;
@@ -386,7 +373,6 @@ ul {
         padding: 20px 20px 30px 20px;
     }
 
-    /* Atualização do footer para mobile */
     .site-footer {
         padding: 40px 0 0 0;
     }
@@ -397,13 +383,11 @@ ul {
         padding: 0 20px 30px 20px;
     }
 
-    /* Esconde algumas seções menos importantes em mobile */
     .footer-column:nth-child(2),
     .footer-column:nth-child(3) {
         display: none;
     }
 
-    /* Ajusta o estilo da primeira coluna (sobre) */
     .footer-column:first-child {
         text-align: center;
     }
@@ -414,7 +398,6 @@ ul {
         margin: 0 auto;
     }
 
-    /* Ajusta o estilo da última coluna (redes sociais) */
     .footer-column:last-child {
         text-align: center;
         margin-top: -10px;
@@ -424,7 +407,6 @@ ul {
         font-size: 1.1rem;
     }
 
-    /* Centraliza e ajusta os ícones sociais */
     .social-links {
         display: flex;
         justify-content: center;
@@ -437,7 +419,6 @@ ul {
         padding: 10px;
     }
 
-    /* Ajusta o rodapé inferior */
     .footer-bottom {
         padding: 15px 0;
         font-size: 0.8rem;
@@ -473,7 +454,6 @@ ul {
 .featured-gallery {
     position: relative;
     padding: 80px 0;
-    /* Criando o gradiente suave nos cantos */
     
     overflow: hidden;
 }
@@ -482,33 +462,29 @@ ul {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
-    /* Removendo a cor sólida */
     color: transparent;
-    /* Adicionando o gradient */
     background: linear-gradient(
         120deg,
-        #13bfc5 30%,    /* Azul claro */
-        #751e7c 45%,   /* Roxo */
-        #ea0e51 65%,   /* Vermelho */
-        #ffd223 70%   /* Amarelo */
+        #13bfc5 30%,  
+        #751e7c 45%,  
+        #ea0e51 65%, 
+        #ffd223 70%   
     );
-    /* Fazendo o texto pegar o gradient como cor */
+
     -webkit-background-clip: text;
     background-clip: text;
-    /* Ajustes para melhor renderização */
     font-weight: 700;
     letter-spacing: -0.5px;
 }
 
 .gallery-grid {
     display: grid;
-    /* Cria colunas responsivas automaticamente */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
 }
 
 .gallery-item {
-    display: block; /* Para que a tag <a> se comporte como um bloco */
+    display: block; 
     position: relative;
     overflow: hidden;
     border-radius: 8px;
@@ -524,7 +500,7 @@ ul {
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    object-fit: cover; 
     display: block;
 }
 
@@ -536,23 +512,20 @@ ul {
     padding: 20px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
     color: white;
-    transform: translateY(100%); /* Começa escondido para baixo */
+    transform: translateY(100%); 
     transition: transform 0.4s ease;
 }
 
-/* Esconde o título e o parágrafo por padrão */
 .gallery-item-info h3, .gallery-item-info p {
     transform: translateY(20px);
     opacity: 0;
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* No hover do card, o overlay sobe */
 .gallery-item:hover .gallery-item-info {
     transform: translateY(0);
 }
 
-/* E o texto aparece com um pequeno atraso */
 .gallery-item:hover .gallery-item-info h3 {
     transform: translateY(0);
     opacity: 1;
@@ -569,10 +542,9 @@ ul {
 /* --- ESTILOS DO RODAPÉ (PERSONALIZADO COM AS CORES DA LOGO) --- */
 
 .site-footer {
-    background-color: #f8f9fa; /* Um branco levemente acinzentado, muito limpo */
+    background-color: #f8f9fa; 
     color: #555;
-    padding: 60px 0 0 0; /* Removemos o padding de baixo por enquanto */
-    /* A borda superior agora é um gradiente! */
+    padding: 60px 0 0 0; 
     border-top: 3px solid transparent;
     border-image: linear-gradient(to right, #13bfc5, #751e7c, #ffd223);
     border-image-slice: 1;
@@ -582,7 +554,7 @@ ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 40px;
-    padding: 0 0 40px 0; /* Adicionamos padding aqui para alinhar com o de cima */
+    padding: 0 0 40px 0;
 }
 
 .footer-heading {
@@ -596,24 +568,20 @@ ul {
     color: #555;
 }
 
-/* Pega o h4 dentro da primeira coluna do grid */
 .footer-grid .footer-column:nth-child(1) .footer-heading {
-    color: #13bfc5; /* Ciano - Início do gradiente da logo */
+    color: #13bfc5; 
 }
 
-/* Pega o h4 dentro da segunda coluna do grid */
 .footer-grid .footer-column:nth-child(2) .footer-heading {
-    color: #751e7c; /* Roxo - Meio do gradiente */
+    color: #751e7c; 
 }
 
-/* Pega o h4 dentro da terceira coluna do grid */
 .footer-grid .footer-column:nth-child(3) .footer-heading {
-    color: #ea0e51; /* Um tom de rosa/vermelho do gradiente */
+    color: #ea0e51; 
 }
 
-/* Pega o h4 dentro da quarta coluna do grid */
 .footer-grid .footer-column:nth-child(4) .footer-heading {
-    color: #ffd223; /* Amarelo - Fim do gradiente da logo */
+    color: #ffd223; 
 }
 
 .footer-links {
@@ -661,33 +629,24 @@ ul {
 .footer-bottom {
     text-align: center;
     padding: 20px 0;
-    /* A linha divisória agora está aqui, mais sutil */
     border-top: 1px solid #e9ecef;
     font-size: 0.9rem;
     color: #777;
-    background-color: #f1f3f5; /* Um fundo levemente diferente para o copyright */
+    background-color: #f1f3f5; 
 }
 
 /* Página de login*/
 
-/* --- CSS PARA ALTERNAR FORMS DE LOGIN/CADASTRO --- */
-
-/* Esta classe será usada pelo JS para esconder o formulário */
 .form-hidden {
     display: none;
 }
 
-/* --- ESTILOS DAS PÁGINAS DE LOGIN/CADASTRO --- */
-
-/* --- ESTILOS DAS PÁGINAS DE LOGIN/CADASTRO --- */
-
 .auth-container {
-    display: flex;           /* 1. Ativa o Flexbox para o alinhamento */
-    justify-content: center; /* 2. Centraliza o card na HORIZONTAL */
-    align-items: center;     /* 3. Centraliza o card na VERTICAL */
-    min-height: 100vh;       /* 4. Garante que o container ocupe a altura toda da tela */
-    padding: 100px 15px 40px 15px; /* Adiciona espaço no topo (para o header) e no fundo */
-    /* Adicionando o mesmo gradiente da galeria */
+    display: flex;           
+    justify-content: center; 
+    align-items: center;     
+    min-height: 100vh;       
+    padding: 100px 15px 40px 15px; 
     background: 
         radial-gradient(
             circle at top left,
@@ -702,7 +661,6 @@ ul {
         #F4F4F9;
 }
 
-/* Ajustando a sombra do card para combinar melhor com o background */
 .auth-form-box {
     background-color: #FFFFFF;
     padding: 40px;
@@ -750,7 +708,7 @@ ul {
 
 .form-group input:focus {
     outline: none;
-    border-color: #00B5A5; /* Cor de destaque do seu tema */
+    border-color: #00B5A5; 
     box-shadow: 0 0 0 3px rgba(0, 181, 165, 0.2);
 }
 
@@ -767,7 +725,7 @@ ul {
 }
 
 .auth-redirect a {
-    color: #00B5A5; /* Cor de destaque do seu tema */
+    color: #00B5A5; 
     font-weight: 600;
     text-decoration: none;
 }
@@ -790,9 +748,9 @@ ul {
 }
 
 .legal-container {
-    padding-top: 120px; /* Espaço para o header fixo */
+    padding-top: 120px; 
     padding-bottom: 80px;
-    max-width: 800px; /* Limita a largura para melhor legibilidade */
+    max-width: 800px; 
 }
 
 .legal-main-title {
@@ -831,7 +789,6 @@ ul {
     padding-left: 10px;
 }
 
-/* Centered navbar for legal pages */
 .navbar-centered {
     justify-content: center;
 }
