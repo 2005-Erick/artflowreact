@@ -1,0 +1,144 @@
+/* === ESTILOS DO DASHBOARD E BARRA LATERAL === */
+
+.dashboard-page {
+    background-color: #F8F9FA;
+}
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* === BARRA LATERAL (SIDEBAR) === */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    border-right: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar-header {
+    margin-bottom: 30px;
+}
+
+.sidebar-logo img {
+    height: 35px;
+    width: auto;
+}
+
+/* === USUÁRIO NA SIDEBAR === */
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #F8F9FA;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #13bfc5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.user-name {
+    font-weight: 600;
+    color: #333;
+    display: block;
+}
+
+.logout-link {
+    font-size: 0.85rem;
+    color: #E53E3E;
+    text-decoration: none;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}
+
+/* === NAVEGAÇÃO NA SIDEBAR === */
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    color: #555;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-nav li a i {
+    font-size: 1.2rem;
+    width: 20px; /* Largura fixa para alinhar os ícones */
+    text-align: center;
+}
+
+.sidebar-nav li a:hover {
+    background-color: #F0F4F8;
+    color: #1a1a1a;
+}
+
+.sidebar-nav li.active a {
+    background-color: #13bfc5;
+    color: white;
+    box-shadow: 0 4px 10px rgba(19, 191, 197, 0.2);
+}
+
+/* === CONTEÚDO PRINCIPAL === */
+.main-content {
+    flex: 1; /* Ocupa o resto do espaço */
+    padding: 40px;
+    overflow-y: auto; /* Permite scroll se o conteúdo for grande */
+}
+
+.main-header {
+    margin-bottom: 40px;
+}
+
+.main-header h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+}
+
+.main-header p {
+    color: #718096;
+    font-size: 1.1rem;
+}
+
+/* === PLACEHOLDER DA GALERIA === */
+.placeholder {
+    border: 2px dashed #e2e8f0;
+    border-radius: 8px;
+    padding: 60px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.placeholder h2 {
+    font-size: 1.8rem;
+    color: #4a5568;
+    margin-bottom: 10px;
+}
+
+.placeholder p {
+    color: #a0aec0;
+}

@@ -1,34 +1,30 @@
-import { slides } from './hero-slides-data.js';
+// Conteúdo do arquivo: /src/hero-slideshow.js
 
 export function setupHeroSlideshow() {
-  const heroSection = document.getElementById('hero-section');
-  const heroTitle = document.getElementById('hero-title');
-  const heroSubtitle = document.getElementById('hero-subtitle');
-
-  if (!heroSection || !heroTitle || !heroSubtitle) {
-    console.error("Elementos da Hero Section não foram encontrados. O slideshow não vai iniciar.");
+  // 1. Seleciona todos os elementos de slide
+  const slides = document.querySelectorAll('.slide');
+  
+  // Se não houver slides, não faz nada
+  if (slides.length === 0) {
     return;
   }
 
   let currentSlideIndex = 0;
 
-function changeSlide() {
-  const slide = slides[currentSlideIndex];
+  // 2. Deixa o primeiro slide visível imediatamente
+  slides[currentSlideIndex].classList.add('active');
 
-  heroTitle.classList.add('fade-out');
-  heroSubtitle.classList.add('fade-out');
+  function changeSlide() {
+    // 3. Esconde o slide atual
+    slides[currentSlideIndex].classList.remove('active');
 
-  setTimeout(() => {
-    heroTitle.textContent = slide.title;
-    heroSubtitle.textContent = slide.subtitle;
-    heroSection.style.backgroundImage = `url(${slide.image})`;
-    
-    heroTitle.classList.remove('fade-out');
-    heroSubtitle.classList.remove('fade-out');
-  }, 300); 
+    // 4. Calcula o índice do próximo slide
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
 
-  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-}
+    // 5. Mostra o próximo slide
+    slides[currentSlideIndex].classList.add('active');
+  }
 
+  // 6. Inicia o intervalo para trocar de slide a cada 7 segundos
   setInterval(changeSlide, 7000);
 }

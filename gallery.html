@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/public/flowlogo-nv.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <title>Galeria | ArtFlow</title>
+</head>
+
+<body class="dashboard-page">
+
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">
+          <img src="/public/flowlogo-nv.png" alt="ArtFlow Logo">
+        </a>
+      </div>
+      <div class="sidebar-user">
+        <div class="user-avatar">
+          <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="user-info">
+          <span class="user-name">Nome do Artista</span>
+          <a href="#" class="logout-link">Sair</a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="active"><a href="#gallery"><i class="fa-solid fa-grip"></i> Galeria</a></li>
+          <li><a href="#profile"><i class="fa-solid fa-user-circle"></i> Perfil</a></li>
+          <li><a href="#notifications"><i class="fa-solid fa-bell"></i> Notificações</a></li>
+          <li><a href="#settings"><i class="fa-solid fa-cog"></i> Configurações</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="main-header">
+        <h1>Galeria</h1>
+        <p>Explore as criações da nossa comunidade.</p>
+      </header>
+      
+      <section class="gallery-container">
+        <!-- O conteúdo da galeria (os ArtCards) será inserido aqui pelo React no futuro -->
+        <div class="placeholder">
+          <h2>Em breve...</h2>
+          <p>A galeria de arte será exibida aqui.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
